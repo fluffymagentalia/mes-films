@@ -6,14 +6,6 @@
   "display": "standalone",
   "background_color": "#f8f8f8",
   "theme_color": "#000000",
-  "screenshots": [
-  {
-    "src": "/mes-films/screenshot-tall.jpg",
-    "sizes": "1080x2012",
-    "type": "image/jpg",
-    "form_factor": "narrow"
-  }
-]
   "icons": [
     {
       "src": "/mes-films/icon-192.png",
@@ -25,6 +17,13 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-
+  ],
+  "screenshots": [
+    {
+      "src": "/mes-films/screenshot-tall.jpg",
+      "sizes": "1080x2012",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    }
   ]
 }
