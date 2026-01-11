@@ -21,9 +21,7 @@
   "screenshots": [
     {
       "src": "/mes-films/screenshot-tall.jpg",
-      "sizes": "1080x2012",
       "type": "image/jpg",
-      "form_factor": "narrow"
     }
   ]
 }
