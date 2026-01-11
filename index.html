@@ -110,7 +110,9 @@
       <option value="4">4 ⭐</option>
       <option value="5">5 ⭐</option>
     </select>
-    <button onclick="addFilm()">Ajouter</button>
+    <button onclick="addFilm()" style="background: #c191db; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+  Ajouter
+</button>
   </div>
 
   <script>
@@ -128,7 +130,7 @@
         <div class="film-title">${film.title}</div>
         <div class="film-date">Vu le ${new Date(film.date).toLocaleDateString()}</div>
         <div class="film-note">Note : ${film.note} ⭐</div>
-        <button onclick="deleteFilm(${index})" style="margin-top: 5px; padding: 2px 5px; font-size: 0.8em; background: #ff6b6b; color: white; border: none; border-radius: 4px; cursor: pointer;">🗑️</button>
+        <button onclick="deleteFilm(${index})" style="margin-top: 5px; padding: 2px 5px; font-size: 0.8em; color: white; border: none; border-radius: 4px; cursor: pointer;">🗑️</button>
       </div>
     `;
     list.appendChild(div);
