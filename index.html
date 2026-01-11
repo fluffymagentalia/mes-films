@@ -182,7 +182,7 @@
         return;
       }
 
-      films.push({ title, poster, date, note });
+      films.push({ title, poster, place, date, note });
       localStorage.setItem('films', JSON.stringify(films));
       document.getElementById('title').value = '';
       document.getElementById('poster').value = '';
