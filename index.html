@@ -147,6 +147,11 @@
   </div>
 
   <script>
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./service-worker.js');
+}
+
     let films = JSON.parse(localStorage.getItem('films')) || [];
 
     function renderFilms() {
