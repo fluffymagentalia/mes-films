@@ -1,7 +1,7 @@
 {
   "name": "Mes films vus en 2026",
   "short_name": "Films vus en 2026 ✨",
-  "start_url": "/",
+  "start_url": "/mes-films/",
   "display": "standalone",
   "background_color": "#f8f8f8",
   "theme_color": "#000000",
