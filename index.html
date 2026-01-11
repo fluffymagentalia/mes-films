@@ -65,28 +65,46 @@
       margin: 5px 0;
     }
     .add-film {
-      margin-top: 20px;
-      padding: 15px;
-      background: #f9f9f9;
-      border-radius: 8px;
-      text-align: center;
-    }
-    input, button {
-      margin: 5px 0;
-      padding: 8px;
-      width: 100%;
-      max-width: 300px;
-    }
-    button {
-      background: #007BFF;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    button:hover {
-      background: #0056b3;
-    }
+  margin-top: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 16px; /* 👈 plus arrondi */
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.add-film input,
+.add-film select,
+.add-film button {
+  border-radius: 12px; /* 👈 plus arrondi */
+  padding: 8px 12px; /* 👈 un peu plus compact */
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95em;
+  border: 1px solid #ddd;
+  transition: border 0.2s;
+}
+
+.add-film input:focus,
+.add-film select:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.add-film button {
+  background: #007BFF;
+  color: white;
+  border: none;
+  padding: 6px 12px; /* 👈 plus petit */
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.95em;
+  min-width: auto; /* 👈 s’adapte à la taille du texte */
+  width: auto; /* 👈 s’adapte à la taille du texte */
+}
+
+.add-film button:hover {
+  background: #0056b3;
+}
     @media (max-width: 600px) {
       .films-container {
         grid-template-columns: repeat(2, 1fr);
@@ -130,8 +148,7 @@
         <div class="film-title">${film.title}</div>
         <div class="film-date">Vu le ${new Date(film.date).toLocaleDateString()}</div>
         <div class="film-note">Note : ${film.note} ⭐</div>
-        <button onclick="deleteFilm(${index})" style="margin-top: 5px; padding: 2px 5px; font-size: 0.8em; color: white; border: none; border-radius: 4px; cursor: pointer;">🗑️</button>
-      </div>
+        <button onclick="deleteFilm(${index})" style="margin-top: 5px; padding: 0; font-size: 1em; background: none; border: none; color: #666; cursor: pointer; font-family: inherit;">🗑️</button>      </div>
     `;
     list.appendChild(div);
   });
