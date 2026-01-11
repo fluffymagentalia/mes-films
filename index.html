@@ -52,7 +52,15 @@
     }
     .film-title {
       font-weight: bold;
-      font-size: 0.9em;
+      font-size: 1.2em;
+      margin: 0 0 5px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .film-place {
+      font-size: 0.8em;
+      color: #666;
       margin: 0 0 5px 0;
       white-space: nowrap;
       overflow: hidden;
@@ -126,6 +134,7 @@
     <h3>Ajouter un film</h3>
     <input type="text" id="title" placeholder="Titre du film" />
     <input type="url" id="poster" placeholder="URL du poster (ex. : https://...jpg)" />
+    <input type="text" id="place" placeholder="Lieu" />
     <input type="date" id="date" />
     <select id="note">
       <option value="1">1 ⭐</option>
