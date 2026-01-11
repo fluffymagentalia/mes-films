@@ -161,6 +161,7 @@
       <img src="${film.poster}" alt="${film.title}" onerror="this.src='https://via.placeholder.com/150x225?text=No+Poster'">
       <div class="film-info">
         <div class="film-title">${film.title}</div>
+        <div class="film-place">${film.place}</div>
         <div class="film-date">Vu le ${new Date(film.date).toLocaleDateString()}</div>
         <div class="film-note">Note : ${film.note} ⭐</div>
         <button onclick="deleteFilm(${index})" style="margin-top: 5px; padding: 0; font-size: 1em; background: none; border: none; color: #666; cursor: pointer; font-family: inherit;">🗑️</button>      </div>
@@ -172,6 +173,7 @@
     function addFilm() {
       const title = document.getElementById('title').value.trim();
       const poster = document.getElementById('poster').value.trim();
+      const place = document.getElementById ('place').value.trim();
       const date = document.getElementById('date').value;
       const note = document.getElementById('note').value;
 
@@ -184,6 +186,7 @@
       localStorage.setItem('films', JSON.stringify(films));
       document.getElementById('title').value = '';
       document.getElementById('poster').value = '';
+      document.getElementById ('place').value = '';
       document.getElementById('date').value = '';
       renderFilms();
     }
