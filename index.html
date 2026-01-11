@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mes Films Vus</title>
+  <title>Mes films vus en 2026 ✨</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: white;
-      padding: 15px;
-      max-width: 100%;
-      margin: 0 auto;
-    }
+      body {
+  background: repeating-linear-gradient(
+    to bottom,
+    #f8f8f8,           /* fond blanc cassé */
+    #f8f8f8 19px,      /* hauteur de la zone blanche */
+    #cce5ff 20px,      /* ligne bleue claire (1px d'épaisseur) */
+    #cce5ff 21px      /* fin de la ligne */
+  );
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 100%;
+  font-family: 'Inter', sans-serif;
+}
     .films-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
