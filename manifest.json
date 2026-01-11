@@ -1,6 +1,6 @@
 {
   "name": "Mes films vus en 2026",
-  "short_name": "Films vus en 2026 ✨",
+  "short_name": "Films 2026 ✨",
   "start_url": "/mes-films/",
   "scope": "/mes-films/",
   "display": "standalone",
@@ -8,12 +8,12 @@
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "/mes-films/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "icon-512.png",
+      "src": "/mes-films/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
