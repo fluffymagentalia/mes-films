@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mes Films Vus</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: white;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .film {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+    .film img {
+      width: 100px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .film-info {
+      flex: 1;
+    }
+    .film-title {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin: 0 0 5px 0;
+    }
+    .film-date {
+      color: #666;
+      font-size: 0.9em;
+    }
+    .film-note {
+      font-weight: bold;
+      color: #333;
+      margin: 5px 0;
+    }
+    .add-film {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+    input, button {
+      margin: 5px 0;
+      padding: 8px;
+    }
+    button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mes Films Vus</h1>
+  <div id="films-list"></div>
+
+  <div class="add-film">
+    <h3>Ajouter un film</h3>
+    <input type="text" id="title" placeholder="Titre du film" />
+    <input type="url" id="poster" placeholder="URL du poster (ex. : https://...jpg)" />
+    <input type="date" id="date" />
+    <select id="note">
+      <option value="1">1 ⭐</option>
+      <option value="2">2 ⭐</option>
+      <option value="3">3 ⭐</option>
+      <option value="4">4 ⭐</option>
+      <option value="5">5 ⭐</option>
+    </select>
+    <button onclick="addFilm()">Ajouter</button>
+  </div>
+
+  <script>
+    let films = JSON.parse(localStorage.getItem('films')) || [];
+
+    function renderFilms() {
+      const list = document.getElementById('films-list');
+      list.innerHTML = '';
+      films.forEach(film => {
+        const div = document.createElement('div');
+        div.className = 'film';
+        div.innerHTML = `
+          <img src="${film.poster}" alt="${film.title}" onerror="this.src='https://via.placeholder.com/100x150?text=No+Poster'">
+          <div class="film-info">
+            <div class="film-title">${film.title}</div>
+            <div class="film-date">Vu le ${new Date(film.date).toLocaleDateString()}</div>
+            <div class="film-note">Note : ${film.note} ⭐</div>
+          </div>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    function addFilm() {
+      const title = document.getElementById('title').value.trim();
+      const poster = document.getElementById('poster').value.trim();
+      const date = document.getElementById('date').value;
+      const note = document.getElementById('note').value;
+
+      if (!title || !date) {
+        alert('Veuillez remplir au moins le titre et la date.');
+        return;
+      }
+
+      films.push({ title, poster, date, note });
+      localStorage.setItem('films', JSON.stringify(films));
+      document.getElementById('title').value = '';
+      document.getElementById('poster').value = '';
+      document.getElementById('date').value = '';
+      renderFilms();
+    }
+
+    renderFilms();
+  </script>
+</body>
+</html>
