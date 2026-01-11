@@ -117,22 +117,23 @@
     let films = JSON.parse(localStorage.getItem('films')) || [];
 
     function renderFilms() {
-      const list = document.getElementById('films-list');
-      list.innerHTML = '';
-      films.forEach(film => {
-        const div = document.createElement('div');
-        div.className = 'film';
-        div.innerHTML = `
-          <img src="$${film.poster}" alt="$${film.title}" onerror="this.src='https://via.placeholder.com/150x225?text=No+Poster'">
-          <div class="film-info">
-            <div class="film-title">${film.title}</div>
-            <div class="film-date">Vu le ${new Date(film.date).toLocaleDateString()}</div>
-            <div class="film-note">Note : ${film.note} ⭐</div>
-          </div>
-        `;
-        list.appendChild(div);
-      });
-    }
+  const list = document.getElementById('films-list');
+  list.innerHTML = '';
+  films.forEach((film, index) => {
+    const div = document.createElement('div');
+    div.className = 'film';
+    div.innerHTML = `
+      <img src="${film.poster}" alt="${film.title}" onerror="this.src='https://via.placeholder.com/150x225?text=No+Poster'">
+      <div class="film-info">
+        <div class="film-title">${film.title}</div>
+        <div class="film-date">Vu le ${new Date(film.date).toLocaleDateString()}</div>
+        <div class="film-note">Note : ${film.note} ⭐</div>
+        <button onclick="deleteFilm(${index})" style="margin-top: 5px; padding: 2px 5px; font-size: 0.8em; background: #ff6b6b; color: white; border: none; border-radius: 4px; cursor: pointer;">🗑️</button>
+      </div>
+    `;
+    list.appendChild(div);
+  });
+}
 
     function addFilm() {
       const title = document.getElementById('title').value.trim();
@@ -154,6 +155,14 @@
     }
 
     renderFilms();
+    
+    function deleteFilm(index) {
+  if (confirm('Supprimer ce film ?')) {
+    films.splice(index, 1); // Supprime le film à l'index donné
+    localStorage.setItem('films', JSON.stringify(films)); // Sauvegarde
+    renderFilms(); // Rafraîchit l'affichage
+  }
+}
   </script>
 </body>
 </html>
